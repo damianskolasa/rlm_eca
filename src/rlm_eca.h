@@ -10,8 +10,9 @@
 
 typedef struct {
 
-
-
+	char *srv_pubkey_filename;
+	char *ecc_domain_name;
+	char *users_filename;
 
 } rlm_eca_t;
 
@@ -39,23 +40,12 @@ module_t rlm_eca = {
 };
 
 static const CONF_PARSER module_config[] = {
-
-	{ "use_mppe",    PW_TYPE_BOOLEAN,
-	  offsetof(rlm_mschap_t,use_mppe), NULL, "yes" },
-	{ "require_encryption",    PW_TYPE_BOOLEAN,
-	  offsetof(rlm_mschap_t,require_encryption), NULL, "no" },
-	{ "require_strong",    PW_TYPE_BOOLEAN,
-	  offsetof(rlm_mschap_t,require_strong), NULL, "no" },
-	{ "with_ntdomain_hack",     PW_TYPE_BOOLEAN,
-	  offsetof(rlm_mschap_t,with_ntdomain_hack), NULL, "no" },
-	{ "passwd",   PW_TYPE_STRING_PTR,
-	  offsetof(rlm_mschap_t, passwd_file), NULL,  NULL },
-	{ "ntlm_auth",   PW_TYPE_STRING_PTR,
-	  offsetof(rlm_mschap_t, ntlm_auth), NULL,  NULL },
-	{ "allow_retry",   PW_TYPE_BOOLEAN,
-	  offsetof(rlm_mschap_t, allow_retry), NULL,  "yes" },
-	{ "retry_msg",   PW_TYPE_STRING_PTR,
-	  offsetof(rlm_mschap_t, retry_msg), NULL,  NULL },
+	{ "srv_pubkey_filename",    PW_TYPE_STRING_PTR,
+	  offsetof(rlm_eca_t,srv_pubkey_filename), NULL, "yes" },
+	{ "ecc_domain_name",    PW_TYPE_STRING_PTR,
+	  offsetof(rlm_eca_t,ecc_domain_name), NULL, "yes" },
+	{ "users_filename",    PW_TYPE_STRING_PTR,
+	  offsetof(rlm_eca_t,users_filename), NULL, "yes" },
 	{ NULL, -1, 0, NULL, NULL }		/* end the list */
 };
 
