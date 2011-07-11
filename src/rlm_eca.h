@@ -8,6 +8,11 @@
 #ifndef RLM_ECA_H_
 #define RLM_ECA_H_
 
+#include <freeradius-devel/ident.h>
+
+#include <freeradius-devel/radiusd.h>
+#include <freeradius-devel/modules.h>
+
 typedef struct {
 
 	char *srv_pubkey_filename;
